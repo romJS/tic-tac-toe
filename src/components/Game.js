@@ -24,8 +24,11 @@ export const GameContext = React.createContext({
 class Game extends React.Component {
   constructor(props) {
     super(props);
+    this.playSize = 10;
     this.state = {
-      squares: Array.from({ length: 10 }).map(() => Array(10).fill(null)),
+      squares: Array.from({ length: this.playSize }).map(() =>
+        Array(this.playSize).fill(null)
+      ),
       xIsNext: true,
       lastMove: [],
       movesCount: 0,
@@ -56,8 +59,8 @@ class Game extends React.Component {
   };
 
   resetGame = () => {
-    const emptySquares = Array.from({ length: 10 }).map(() =>
-      Array(10).fill(null)
+    const emptySquares = Array.from({ length: this.playSize }).map(() =>
+      Array(this.playSize).fill(null)
     );
 
     this.setState({
