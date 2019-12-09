@@ -1,13 +1,8 @@
 import React from "react";
 import Square from "./Square";
-import styled from "styled-components";
 
-const BoardDiv = styled.div`
-  border: 10px outset #929292;
-`;
-
-class Board extends React.Component {
-  renderBoard = squares => {
+const Board = props => {
+  const renderBoard = squares => {
     return Array.from({ length: 10 }).map((row, rowIndex) => (
       <div key={rowIndex} className="board-row">
         {Array.from({ length: 10 }).map((item, squareIndex) => (
@@ -22,13 +17,11 @@ class Board extends React.Component {
     ));
   };
 
-  render() {
-    return (
-      <BoardDiv className="board" ref={this.props.boardRef}>
-        {this.renderBoard(this.props.squares)}
-      </BoardDiv>
-    );
-  }
-}
+  return (
+    <div className="board" style={{ border: "10px outset #929292" }}>
+      {renderBoard(props.squares)}
+    </div>
+  );
+};
 
 export default Board;

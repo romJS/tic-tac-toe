@@ -7,6 +7,7 @@ const PopUp = styled.div`
   flex-direction: column;
   position: absolute;
   background: #ccc;
+  opacity: 0.9;
   width: 15rem;
   height: 10rem;
   justify-content: center;
